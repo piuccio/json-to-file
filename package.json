@@ -1,6 +1,6 @@
 {
   "name": "@piuccio/json-to-file",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Save a JS object to file and output its file size",
   "main": "index.js",
   "scripts": {
