@@ -1,16 +1,36 @@
 {
-  "name": "json-to-file",
+  "name": "@piuccio/json-to-file",
   "version": "0.0.0",
-  "description": "",
+  "description": "Save a JS object to file and output its file size",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "mkdir -p output",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "posttest": "npm run lint",
     "lint": "eslint --ignore-path .gitignore --cache --fix ."
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [],
   "author": "Fabio Crisci <fabio.crisci@gmail.com> (https://github.com/piuccio)",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "5.15.3"
+    "eslint": "5.15.3",
+    "jest": "24.5.0",
+    "rimraf": "2.6.3"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "watchPathIgnorePatterns": [
+      "output"
+    ]
+  },
+  "dependencies": {
+    "prettysize": "2.0.0"
   }
 }
