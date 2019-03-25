@@ -19,3 +19,4 @@ It'll create a file called `filepath.json` and `console.log` the generated file 
 The third optional argument is an options object containing
 
 * `pretty: Boolean` defaults to `false`, if `true` the generated JSON file will have indentation of 2 spaces.
+* `cwd: String` defaults to `undefined`, it set, all paths will be prefixed with `cwd`

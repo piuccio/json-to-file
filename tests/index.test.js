@@ -27,6 +27,16 @@ it('saves to file with pretty formatting', async () => {
   );
 });
 
+it('saves to a file relative to cwd', async () => {
+  const object = { yolo: true };
+  await save('../output/relative.json', object, { cwd: __dirname, });
+  const content = await util.promisify(fs.readFile)('output/relative.json');
+  expect(content.toString()).toEqual('{"yolo":true}');
+  expect(global.console.log).toHaveBeenCalledWith(
+    expect.stringMatching(/saved.*13 B/)
+  );
+});
+
 async function doIt(filename, object, options) {
   await save(filename, object, options);
   const content = await util.promisify(fs.readFile)(filename);
